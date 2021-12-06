@@ -1,4 +1,5 @@
 
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:interview_task/screens/dog_walker_info.dart';
@@ -28,7 +29,7 @@ void main() {
       '/register': (context) => RegisterPage(),
       '/homepage': (context) => HomePage(),
       '/chatScreen' : (context) => ChatScreen(),
-      '/aboutScreen' : (context) => AboutInfoScreen(),
+      '/dogWalkerInfo' : (context) => DogWalkerInfo(),
     } ,
   )
   );

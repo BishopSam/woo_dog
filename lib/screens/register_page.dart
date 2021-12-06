@@ -153,7 +153,10 @@ class _RegisterPageState extends State<RegisterPage> {
                 Padding(
                   padding: const EdgeInsets.only(left: 35.0, right: 35.0),
                   child: CustomButton(
-                    onPressed: () => Navigator.pushNamed(context, '/homepage'),
+                    onPressed: () {
+                      if (_formKey.currentState.validate()){
+                      Navigator.pushNamed(context, '/homepage');}
+                    },
                     borderRadius: 12.0,
                     height: 55,
                     width: 324,

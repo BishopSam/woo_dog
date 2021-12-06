@@ -12,13 +12,28 @@ class HomeFragment extends StatefulWidget {
 
 class _HomeFragmentState extends State<HomeFragment> {
 
-  List<Widget> dogWalkers = [
-    DogWalker(asset: 'dogwalker1.png', distance: 4, name: 'Mason York', rate: '#10',),
-    DogWalker(asset: 'dogwalker1.png', distance: 7, name: 'Mark Green', rate: '#7',),
-    DogWalker(asset: 'dogwalker1.png', distance: 9, name: 'Mason York', rate: '#5',),
-    DogWalker(asset: 'dogwalker1.png', distance: 2, name: 'Mason York', rate: '#9',),
-    DogWalker(asset: 'dogwalker1.png', distance: 10, name: 'Mason York', rate: '#4',)
-  ];
+  List <String> dogWalkerNames = ['Alex Murray', 'Mason Green', 'Mason York', 'Mason York', 'Mason York' ];
+  List <String> dogWalkerAssets = ['IMAGE.png', 'dogwalker1.png', 'dogwalker1.png', 'dogwalker1.png', 'dogwalker1.png'];
+  List <int> dogWalkerDistances =  [4, 7, 9, 2, 10];
+  List <String> dogWalkerRates = ['#10', '#7', '#5', '#9', '#4'];
+  List<String> dogWalkerAges = ['30 years', '25 years', '32 years', '33 years', '20 years'];
+  List<String> dogWalkerExperiences = ['11 months' , '9 months' , '2 years', '6 months', '1 year'];
+  List<String> dogWalkerRatings = ['4.4', '4.9', '5.0', '4.2', '4.0'];
+  List<String> dogWalkerWalks = ['450', '350','230','270', '99' ];
+
+  List<DogWalker> data;
+
+  List <String> suggestedDogWalkerNames = ['Trina Kain', 'Kyle Walker', 'Kyle York', 'Mason York', 'Mason York' ];
+  List <String> suggestedDogWalkerAssets = ['dogwalker2.png', 'dogwalker1.png', 'dogwalker1.png', 'dogwalker1.png', 'dogwalker1.png'];
+  List <int> suggestedDogWalkerDistances =  [14, 3, 9, 12, 10];
+  List <String> suggestedDogWalkerRates = ['#10', '#7', '#5', '#9', '#4'];
+  List<String> suggestedDogWalkerAges = ['25 years', '26 years', '32 years', '33 years', '20 years'];
+  List<String> suggestedDogWalkerExperiences = ['12 months' , '3 months' , '1 years', '8 months', '3 year'];
+  List<String> suggestedDogWalkerRatings = ['4.9', '4.5', '5.0', '4.2', '4.0'];
+  List<String> suggestedDogWalkerWalks = ['434', '300','230','150', '99' ];
+
+
+  List<DogWalker> suggestedData;
 
   List<Widget> suggestedDogWalkers = [
     DogWalker(asset: 'dogwalker2.png', distance: 14, name: 'Trina Kain', rate: '#10',),
@@ -30,6 +45,8 @@ class _HomeFragmentState extends State<HomeFragment> {
 
   @override
   Widget build(BuildContext context) {
+    data = List.generate(dogWalkerNames.length, (index) => DogWalker(name: '${dogWalkerNames[index]}', rate: '${dogWalkerRates[index]}', distance: dogWalkerDistances[index], asset: '${dogWalkerAssets[index]}', ));
+    suggestedData = List.generate(suggestedDogWalkerNames.length, (index) => DogWalker(name: '${suggestedDogWalkerNames[index]}', rate: '${suggestedDogWalkerRates[index]}', distance: suggestedDogWalkerDistances[index], asset: '${suggestedDogWalkerAssets[index]}', ));
     return Container(
       child: ListView(
 
@@ -122,11 +139,25 @@ class _HomeFragmentState extends State<HomeFragment> {
             height: 200,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
-              itemCount: dogWalkers.length,
+              itemCount: data.length,
               itemBuilder: (context, int index) {
                 return Container(
                   height: 200, width: 180,
-                  child: dogWalkers[index],
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, '/dogWalkerInfo', arguments: {
+                        'dogWalkerNames' : dogWalkerNames[index],
+                        'dogWalkerRates' : dogWalkerRates[index],
+                        'dogWalkerAssets' : dogWalkerAssets[index],
+                        'dogWalkerDistances' : dogWalkerDistances[index],
+                        'dogWalkerAges' : dogWalkerAges[index],
+                        'dogWalkerExperiences' : dogWalkerExperiences[index],
+                        'dogWalkerRatings': dogWalkerRatings[index],
+                        'dogWalkerWalks' : dogWalkerWalks[index]
+                      });
+                    },
+                      child: DogWalker(name: data[index].name, asset: data[index].asset, rate: data[index].rate, distance: data[index].distance,)
+                  ),
                 );
               },
             ),
@@ -162,11 +193,25 @@ class _HomeFragmentState extends State<HomeFragment> {
             height: 200,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
-              itemCount: suggestedDogWalkers.length,
+              itemCount: suggestedData.length,
               itemBuilder: (context, int index) {
                 return Container(
                   height: 200, width: 180,
-                  child: suggestedDogWalkers[index],
+                  child: GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, '/dogWalkerInfo', arguments: {
+                          'dogWalkerNames' : suggestedDogWalkerNames[index],
+                          'dogWalkerRates' : suggestedDogWalkerRates[index],
+                          'dogWalkerAssets' : suggestedDogWalkerAssets[index],
+                          'dogWalkerDistances' : suggestedDogWalkerDistances[index],
+                          'dogWalkerAges' : suggestedDogWalkerAges[index],
+                          'dogWalkerExperiences' : suggestedDogWalkerExperiences[index],
+                          'dogWalkerRatings': suggestedDogWalkerRatings[index],
+                          'dogWalkerWalks' : suggestedDogWalkerWalks[index]
+                        });
+                      },
+                      child: DogWalker(name: suggestedData[index].name, asset: suggestedData[index].asset, rate: suggestedData[index].rate, distance: suggestedData[index].distance,)
+                  ),
                 );
               },
             ),

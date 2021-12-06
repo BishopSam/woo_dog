@@ -104,7 +104,7 @@ class _ChatScreenState extends State<ChatScreen> {
                   return Container(
                     child: Padding(
                       padding: const EdgeInsets.all(18.0),
-                      child: Text(messageList[index]),
+                      child: Text(messageList[index], style: TextStyle(color: Colors.white),),
                     ),
                     decoration: BoxDecoration(
                       color: Color(0xffFB724C),
