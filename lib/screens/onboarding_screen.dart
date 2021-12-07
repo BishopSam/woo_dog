@@ -193,7 +193,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     Positioned(
                       top:510*heightFactor,
                       left:45*widthFactor,
-                      right: 8*widthFactor,
                       child: Text(
                         'Too tired to walk your dog?\n\t\t\t\t\t\t\t\tLet us help you!',
                         style: TextStyle(
