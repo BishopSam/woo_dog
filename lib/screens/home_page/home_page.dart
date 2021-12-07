@@ -12,6 +12,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
   TextStyle(fontSize: 34, fontFamily: 'Poppins');
@@ -58,6 +60,7 @@ class _HomePageState extends State<HomePage> {
                 MyFlutterApp.users,
             ),
             label: 'Moments',
+
           ),
           BottomNavigationBarItem(
             icon: Icon(
@@ -75,6 +78,7 @@ class _HomePageState extends State<HomePage> {
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.black,
         onTap: _onItemTapped,
+
       ),
     );
   }

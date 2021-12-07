@@ -23,38 +23,27 @@ class _ChatFragmentState extends State<ChatFragment> {
 
   @override
   Widget build(BuildContext context) {
+    var constraints = MediaQuery.of(context);
+    var heightFactor = constraints.size.height/819;
+    var widthFactor = constraints.size.width/411;
 
     data = List.generate(contactNames.length, (index) => ChatModel(contactName: '${contactNames[index]}', contactProfilePic: '${contactProfilePics[index]}', messagePreview: '${messagePreviews[index]}', time: '${times[index]}'));
- // chats = [
- //      ChatTile(contactName: 'Alex Murray', messagePreview: 'Hey There!', time: '1min', color: Colors.orange, contactProfilePic: 'IMAGE.png',),
- //      ChatTile(contactName: 'Will Knowles', messagePreview: 'Hey! How\'s Your Dog', time: '1min', color: Colors.orange, contactProfilePic: 'profilepic.png',),
- //      ChatTile(contactName: 'Ryan Bond', messagePreview: 'Let\'s Go Out', time: '5hrs', color: Colors.transparent,contactProfilePic: 'profilepic4.png',),
- //      ChatTile(contactName: 'Sirena Paul', messagePreview: 'Hey! Longtime no see', time: '1min', color: Colors.orange,contactProfilePic: 'profilepic1.png',),
- //      ChatTile(contactName: 'Matt Chapman', messagePreview: 'You fed the dog', time: '6hrs', color: Colors.transparent,contactProfilePic: 'profilepic3.png',),
- //      ChatTile(contactName: 'Laura Pierce', messagePreview: 'Hpw are you doing?', time: '7hrs', color: Colors.transparent,contactProfilePic: 'profilepic2.png',),
- //      ChatTile(contactName: 'Hazel Bread', messagePreview: 'Hey! Longtime no see', time: '5hrs', color: Colors.transparent,contactProfilePic: 'profilepic1.png',),
- //      ChatTile(contactName: 'Will Knowles', messagePreview: 'Hey! How\'s Your Dog', time: '1min', color: Colors.orange,contactProfilePic: 'profilepic3.png',),
- //    ];
-
-    // chats = [
-    //   ChatTile(chatModel: ,)
-    // ];
     return Container(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.only(left: 18.0, top: 55),
+            padding: EdgeInsets.only(left: 18.0*widthFactor, top: 55*heightFactor),
             child: Text(
               'Chat',
               style: TextStyle(
                 fontFamily: 'Poppins',
-                fontSize: 34
+                fontSize: 34*heightFactor
               ),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 18.0, right: 18.0, top: 22),
+            padding: EdgeInsets.only(left: 18.0*widthFactor, right: 18.0*widthFactor, top: 22*heightFactor),
             child: TextFormField(
               decoration: InputDecoration(
                   prefixIcon: Icon(Icons.search),

@@ -16,12 +16,15 @@ class ChatTile extends ListTile {
   final Color color;
   @override
   Widget build(BuildContext context) {
+    var constraints = MediaQuery.of(context);
+    var heightFactor = constraints.size.height/819;
+    var widthFactor = constraints.size.width/411;
     return Container(
-      height: 98,
+      height: 98*heightFactor,
       child: Row(
         children: [
           Padding(
-            padding: const EdgeInsets.only(left: 18.0),
+            padding:  EdgeInsets.only(left: 18.0*widthFactor),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(25),
               child: Image.asset(
@@ -32,9 +35,9 @@ class ChatTile extends ListTile {
               ),
             ),
           ),
-          SizedBox(width: 10,),
+          SizedBox(width: 10*widthFactor,),
           Padding(
-            padding: const EdgeInsets.only(top: 20.0),
+            padding: EdgeInsets.only(top: 20.0*heightFactor),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -42,14 +45,14 @@ class ChatTile extends ListTile {
                   contactName,
                   style: TextStyle(
                     fontFamily: 'Poppins',
-                    fontSize: 20,
+                    fontSize: 20*heightFactor,
                   ),
                 ),
                 Text(
                   messagePreview + '\t\t.\t\t' + time,
                   style: TextStyle(
                     fontFamily: 'PoppinsSemiBold',
-                    fontSize: 17,
+                    fontSize: 17*heightFactor,
                   ),
                 ),
               ],
@@ -57,9 +60,9 @@ class ChatTile extends ListTile {
           ),
          Spacer(),
           Padding(
-            padding: const EdgeInsets.only(right: 15.0),
+            padding:  EdgeInsets.only(right: 15.0*widthFactor),
             child: CircleAvatar(
-              radius: 5,
+              radius: 5*widthFactor,
               backgroundColor: color,
             ),
           )

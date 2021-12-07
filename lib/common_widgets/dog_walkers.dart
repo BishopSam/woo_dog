@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 
 class DogWalker extends StatelessWidget {
@@ -7,42 +8,45 @@ class DogWalker extends StatelessWidget {
   final VoidCallback onPressed;
   @override
   Widget build(BuildContext context) {
+    var constraints = MediaQuery.of(context);
+    var heightFactor = constraints.size.height/819;
+    var widthFactor = constraints.size.width/411;
     return InkWell(
       onTap: onPressed,
       child: SizedBox(
-        height: 150,
-        width: 180,
+        height: 150*heightFactor,
+        width: 180*widthFactor,
         child: Column(
           children: [
            Image.asset(
                'assets/$asset',
-             height: 100,
-             width: 200,
+             height: 100*heightFactor,
+             width: 200*widthFactor,
            ),
-            SizedBox(height: 10.0),
+            SizedBox(height: 10.0*heightFactor),
             Row(
               children: [
                 Column(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(left: 20.0),
+                      padding:  EdgeInsets.only(left: 25.0*widthFactor),
                       child: Text(
                         name,
                         style: TextStyle(
                           fontFamily: 'Poppins',
-                          fontSize: 15,
+                          fontSize: 15*heightFactor,
                         ),
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left:10.0),
+                      padding:  EdgeInsets.only(left:20.0*widthFactor),
                       child: Row(children: [
                       Icon(Icons.location_on_outlined,
-                        size: 15,
+                        size: 15*heightFactor,
                       ),
                         Text('$distance km from you',
                           style: TextStyle(
-                            fontSize: 12,
+                            fontSize: 12*heightFactor,
                           ),
 
                         ),
@@ -52,19 +56,19 @@ class DogWalker extends StatelessWidget {
 
                   ],
                 ),
-                SizedBox(width: 12,),
+                SizedBox(width: 12*widthFactor,),
                 Container(
-                  height: 25,
-                  width: 40,
+                  height: 25*heightFactor,
+                  width: 40*widthFactor,
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5.0),
+                      borderRadius: BorderRadius.circular(5.0*widthFactor),
                       color: Colors.black87
                   ),
                   child: Center(
                     child: Text('$rate/hr',
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 10,
+                        fontSize: 10*heightFactor,
                         fontFamily: 'PoppinsSemiBold'
                       ),
                     ),

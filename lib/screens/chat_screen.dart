@@ -22,6 +22,9 @@ class _ChatScreenState extends State<ChatScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var constraints = MediaQuery.of(context);
+    var heightFactor = constraints.size.height/819;
+    var widthFactor = constraints.size.width/411;
     Map data = ModalRoute.of(context).settings.arguments;
     return Scaffold(
       appBar: PreferredSize(
@@ -38,12 +41,7 @@ class _ChatScreenState extends State<ChatScreen> {
             children: [
               Text(
                 data['contactName'],
-                style: TextStyle(color: Colors.black, fontFamily: 'Poppins'),
-              ),
-              Text(
-                'Tap here for about info',
-                style: TextStyle(
-                    color: Colors.black, fontSize: 13, fontFamily: 'Inter'),
+                style: TextStyle(color: Colors.black, fontFamily: 'Poppins', ),
               ),
             ],
           ),
@@ -76,10 +74,10 @@ class _ChatScreenState extends State<ChatScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding:  EdgeInsets.only(left: 8.0*widthFactor, top: 8.0*heightFactor, right: 8.0*widthFactor, bottom: 8.0*widthFactor),
               child: Container(
                 child: Padding(
-                  padding: const EdgeInsets.all(18.0),
+                  padding:  EdgeInsets.only(left: 18.0*widthFactor, top: 18.0*heightFactor, right: 18.0*widthFactor, bottom: 18.0*widthFactor),
                   child: Text(data['messagePreview']),
                 ),
                 decoration: BoxDecoration(
@@ -93,8 +91,8 @@ class _ChatScreenState extends State<ChatScreen> {
               ),
             ),
             Container(
-              height: 600,
-              padding: EdgeInsets.only(left: 200),
+              height: 600*heightFactor,
+              padding: EdgeInsets.only(left: 200*widthFactor),
               child: ListView.separated(
                 separatorBuilder: (context, index) => Divider(
                   color: Colors.transparent,
@@ -103,7 +101,7 @@ class _ChatScreenState extends State<ChatScreen> {
                 itemBuilder: (context, index) {
                   return Container(
                     child: Padding(
-                      padding: const EdgeInsets.all(18.0),
+                      padding: EdgeInsets.only(left: 18.0*widthFactor, top: 18.0*heightFactor, right: 18.0*widthFactor, bottom: 18.0*widthFactor),
                       child: Text(messageList[index], style: TextStyle(color: Colors.white),),
                     ),
                     decoration: BoxDecoration(
@@ -126,7 +124,7 @@ class _ChatScreenState extends State<ChatScreen> {
         child: Row(
           children: [
             Container(
-              height: 60,
+              height: 60*heightFactor,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
                 color: Color(0xffF5F5F5),
@@ -139,7 +137,7 @@ class _ChatScreenState extends State<ChatScreen> {
                   onPressed: () {}),
             ),
             SizedBox(
-              width: 17,
+              width: 17*widthFactor,
             ),
             Expanded(
               child: TextFormField(
@@ -163,13 +161,13 @@ class _ChatScreenState extends State<ChatScreen> {
                             },
                             child: Icon(
                               Icons.send,
-                              size: 29,
+                              size: 29*heightFactor,
                               color: Color(0xffFB724C),
                             ),
                           )
                         : Icon(
                             Icons.mic,
-                            size: 29,
+                            size: 29*heightFactor,
                             color: Color(0xffFB724C),
                           ),
                     hintStyle: TextStyle(

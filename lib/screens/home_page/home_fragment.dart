@@ -45,6 +45,9 @@ class _HomeFragmentState extends State<HomeFragment> {
 
   @override
   Widget build(BuildContext context) {
+    var constraints = MediaQuery.of(context);
+    var heightFactor = constraints.size.height/819;
+    var widthFactor = constraints.size.width/411;
     data = List.generate(dogWalkerNames.length, (index) => DogWalker(name: '${dogWalkerNames[index]}', rate: '${dogWalkerRates[index]}', distance: dogWalkerDistances[index], asset: '${dogWalkerAssets[index]}', ));
     suggestedData = List.generate(suggestedDogWalkerNames.length, (index) => DogWalker(name: '${suggestedDogWalkerNames[index]}', rate: '${suggestedDogWalkerRates[index]}', distance: suggestedDogWalkerDistances[index], asset: '${suggestedDogWalkerAssets[index]}', ));
     return Container(
@@ -54,19 +57,19 @@ class _HomeFragmentState extends State<HomeFragment> {
           Row(
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 18.0),
+                padding: EdgeInsets.only(left: 18.0*widthFactor),
                 child: Text('Home',
                   style: TextStyle(
                     fontFamily: 'Poppins',
                     color: Colors.black,
-                    fontSize: 34,
+                    fontSize: 34*heightFactor,
                   ),
                 ),
               ),
               Spacer(),
               Padding(
-                padding: const EdgeInsets.only(left: 8.0, top: 8.0, right: 8.0,),
-                child: CustomButton(height: 50, width: 133, child: Row(
+                padding:  EdgeInsets.only(left: 8.0*widthFactor, top: 8.0*heightFactor, right: 8.0*widthFactor,),
+                child: CustomButton(height: 50*heightFactor, width: 133*widthFactor, child: Row(
                   children: [
                     Icon(Icons.add,
                       color: Colors.white,
@@ -76,16 +79,16 @@ class _HomeFragmentState extends State<HomeFragment> {
                     Text('Book a walk',
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 13
+                        fontSize: 13*heightFactor
                       ),
                     ),
                   ],
-                ), borderRadius: 12.0,),
+                ), borderRadius: 12.0*widthFactor,),
               ),
             ],
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 18.0),
+            padding:  EdgeInsets.only(left: 18.0*widthFactor),
             child: Text('Explore Dog Walkers',
               style: TextStyle(
                 fontFamily: 'PoppinsLight',
@@ -94,9 +97,9 @@ class _HomeFragmentState extends State<HomeFragment> {
               ),
             ),
           ),
-          SizedBox(height: 22,),
+          SizedBox(height: 22*heightFactor,),
           Padding(
-            padding: const EdgeInsets.only(left: 18.0, right: 18.0, top: 5.0, bottom: 10.0),
+            padding:  EdgeInsets.only(left: 18.0*widthFactor, right: 18.0*widthFactor, top: 5.0*heightFactor, bottom: 10.0*heightFactor),
             child: TextFormField(
               decoration: InputDecoration(
                 prefixIcon: Icon(Icons.location_on_outlined),
@@ -111,38 +114,38 @@ class _HomeFragmentState extends State<HomeFragment> {
           Row(
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 18.0, top: 22),
+                padding:  EdgeInsets.only(left: 18.0*widthFactor, top: 22*heightFactor),
                 child: Text(
                   'Near You',
                   style: TextStyle(
                     fontFamily: 'Poppins',
-                    fontSize: 34,
+                    fontSize: 34*heightFactor,
                   ),
                 ),
               ),
               Spacer(),
               Padding(
-                padding: const EdgeInsets.only(top: 25.0, right: 16.0),
+                padding:  EdgeInsets.only(top: 25.0*heightFactor, right: 16.0*widthFactor),
                 child: Text(
                   'View All',
                   style: TextStyle(
                     fontFamily: 'PoppinsSemiBold',
-                    fontSize: 15,
+                    fontSize: 15*heightFactor,
                     decoration: TextDecoration.underline
                   ),
                 ),
               ),
             ],
           ),
-          SizedBox(height: 10,),
+          SizedBox(height: 10*heightFactor,),
           Container(
-            height: 200,
+            height: 200*heightFactor,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: data.length,
               itemBuilder: (context, int index) {
                 return Container(
-                  height: 200, width: 180,
+                  height: 200*heightFactor, width: 180*widthFactor,
                   child: GestureDetector(
                     onTap: () {
                       Navigator.pushNamed(context, '/dogWalkerInfo', arguments: {
@@ -165,38 +168,38 @@ class _HomeFragmentState extends State<HomeFragment> {
           Row(
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 18.0, ),
+                padding:  EdgeInsets.only(left: 18.0*widthFactor, ),
                 child: Text(
                   'Suggested',
                   style: TextStyle(
                     fontFamily: 'Poppins',
-                    fontSize: 34,
+                    fontSize: 34*heightFactor,
                   ),
                 ),
               ),
               Spacer(),
               Padding(
-                padding: const EdgeInsets.only( right: 16.0),
+                padding:  EdgeInsets.only( right: 16.0*widthFactor),
                 child: Text(
                   'View All',
                   style: TextStyle(
                       fontFamily: 'PoppinsSemiBold',
-                      fontSize: 15,
+                      fontSize: 15*heightFactor,
                       decoration: TextDecoration.underline
                   ),
                 ),
               ),
             ],
           ),
-          SizedBox(height: 10,),
+          SizedBox(height: 10*heightFactor,),
           Container(
-            height: 200,
+            height: 200*heightFactor,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: suggestedData.length,
               itemBuilder: (context, int index) {
                 return Container(
-                  height: 200, width: 180,
+                  height: 200*heightFactor, width: 180*widthFactor,
                   child: GestureDetector(
                       onTap: () {
                         Navigator.pushNamed(context, '/dogWalkerInfo', arguments: {

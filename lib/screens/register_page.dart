@@ -28,6 +28,10 @@ class _RegisterPageState extends State<RegisterPage> {
   }
   @override
   Widget build(BuildContext context) {
+    var constraints = MediaQuery.of(context);
+
+    var heightFactor = constraints.size.height/819;
+    var widthFactor = constraints.size.width/411;
     return Scaffold(
 
       appBar: AppBar(
@@ -43,36 +47,36 @@ class _RegisterPageState extends State<RegisterPage> {
 
               children: [
                 Container(
-                  padding: EdgeInsets.only(left: 36),
+                  padding: EdgeInsets.only(left: 36*widthFactor),
                   child: Text(
                     'Let\'s Start Here',
                     style: TextStyle(
                       fontFamily: 'Poppins',
-                      fontSize: 34,
+                      fontSize: 34*heightFactor,
                     ),
                   ),
                 ),
-                SizedBox(height: 10,),
+                SizedBox(height: 10*heightFactor,),
                 Container(
-                  padding: EdgeInsets.only(left: 36),
+                  padding: EdgeInsets.only(left: 36*widthFactor),
                   child: Text(
                     'Fill in your details to begin',
                     style: TextStyle(
                       fontFamily: 'PoppinsSemiBold',
-                      fontSize: 17,
+                      fontSize: 17*heightFactor,
                     ),
                   ),
                 ),
                 SizedBox(
-                  height: 48,
+                  height: 48*heightFactor,
                 ),
                 Form(
                   key: _formKey,
                   child: Column(
                    children: [
                      SizedBox(
-                       width: 343,
-                       height: 60,
+                       width: 343*widthFactor,
+                       height: 60*heightFactor,
                        child: TextFormField(
                          onChanged: (val) {
                            setState(() {
@@ -90,11 +94,11 @@ class _RegisterPageState extends State<RegisterPage> {
                      ),
                      ),
                      SizedBox(
-                       height: 22,
+                       height: 22*heightFactor,
                      ),
                      SizedBox(
-                       width: 343,
-                       height: 60,
+                       width: 343*widthFactor,
+                       height: 60*heightFactor,
                        child: TextFormField(
                          onChanged: (val) {
                            setState(() {
@@ -112,11 +116,11 @@ class _RegisterPageState extends State<RegisterPage> {
                        ),
                      ),
                      SizedBox(
-                       height: 22,
+                       height: 22*heightFactor,
                      ),
                      SizedBox(
-                       width: 343,
-                       height: 60,
+                       width: 343*widthFactor,
+                       height: 60*heightFactor,
                        child: TextFormField(
                          onChanged: (val) {
                            setState(() {
@@ -124,7 +128,7 @@ class _RegisterPageState extends State<RegisterPage> {
                            });
                          },
                          validator: (val) => val.length < 3 ? 'Enter at least 3 characters' : null,
-                         textInputAction: TextInputAction.done,
+                         textInputAction: TextInputAction.next,
                          obscureText: _isObscure,
                          decoration: InputDecoration(
                            labelText: 'Password',
@@ -149,30 +153,30 @@ class _RegisterPageState extends State<RegisterPage> {
                    ],
                   ),
                 ),
-                SizedBox(height: 22,),
+                SizedBox(height: 22*heightFactor,),
                 Padding(
-                  padding: const EdgeInsets.only(left: 35.0, right: 35.0),
+                  padding:  EdgeInsets.only(left: 35.0*widthFactor, right: 35.0*widthFactor),
                   child: CustomButton(
                     onPressed: () {
                       if (_formKey.currentState.validate()){
                       Navigator.pushNamed(context, '/homepage');}
                     },
-                    borderRadius: 12.0,
-                    height: 55,
-                    width: 324,
+                    borderRadius: 12.0*widthFactor,
+                    height: 55*heightFactor,
+                    width: 324*widthFactor,
                     child: Text(
                       'Sign Up',
                       style: TextStyle(
                         fontFamily: 'Poppins',
-                        fontSize: 17,
+                        fontSize: 17*heightFactor,
                         color: Colors.white,
                       ),
                     ),
                   ),
                 ),
-                SizedBox(height: 196,),
+                SizedBox(height: 196*heightFactor,),
                 Padding(
-                  padding: const EdgeInsets.only(left: 48.0, right: 28.0),
+                  padding:  EdgeInsets.only(left: 68.0*widthFactor, right: 28.0*widthFactor),
                   child: Column(
                     children: [
                       Row(
@@ -181,41 +185,41 @@ class _RegisterPageState extends State<RegisterPage> {
                               'By signing in, you agree with our',
                             style: TextStyle(
                               fontFamily: 'PoppinsLight',
-                              fontSize: 13
+                              fontSize: 13*heightFactor
                             ),
                           ),
-                          SizedBox(width: 5,),
+                          SizedBox(width: 5*widthFactor,),
                           GestureDetector(
                             onTap: () {},
                             child: Text(
                               'Terms of Service',
                               style: TextStyle(
                                 fontFamily: 'PoppinsSemiBold',
-                                fontSize: 13
+                                fontSize: 13*heightFactor
                               ),
                             ),
                           )
                         ],
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(left: 98.0),
+                        padding: EdgeInsets.only(left: 98.0*widthFactor),
                         child: Row(
                           children: [
                             Text(
                               'and',
                               style: TextStyle(
                                   fontFamily: 'PoppinsLight',
-                                  fontSize: 13
+                                  fontSize: 13*heightFactor
                               ),
                             ),
-                            SizedBox(width: 5,),
+                            SizedBox(width: 5*widthFactor,),
                             GestureDetector(
                               onTap: () {},
                               child: Text(
                                 'Privacy Policy',
                                 style: TextStyle(
                                     fontFamily: 'PoppinsSemiBold',
-                                    fontSize: 13
+                                    fontSize: 13*heightFactor
                                 ),
                               ),
                             )
