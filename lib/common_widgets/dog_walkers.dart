@@ -9,8 +9,8 @@ class DogWalker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var constraints = MediaQuery.of(context);
-    var heightFactor = constraints.size.height/819;
-    var widthFactor = constraints.size.width/411;
+    var heightFactor = constraints.size.height/820.57;
+    var widthFactor = constraints.size.width/411.43;
     return InkWell(
       onTap: onPressed,
       child: SizedBox(
@@ -29,17 +29,17 @@ class DogWalker extends StatelessWidget {
                 Column(
                   children: [
                     Padding(
-                      padding:  EdgeInsets.only(left: 25.0*widthFactor),
+                      padding:  EdgeInsets.only(left: 30.0*widthFactor),
                       child: Text(
                         name,
                         style: TextStyle(
                           fontFamily: 'Poppins',
-                          fontSize: 15*heightFactor,
+                          fontSize: 13*heightFactor,
                         ),
                       ),
                     ),
                     Padding(
-                      padding:  EdgeInsets.only(left:20.0*widthFactor),
+                      padding:  EdgeInsets.only(left:29.0*widthFactor),
                       child: Row(children: [
                       Icon(Icons.location_on_outlined,
                         size: 15*heightFactor,
@@ -56,7 +56,7 @@ class DogWalker extends StatelessWidget {
 
                   ],
                 ),
-                SizedBox(width: 12*widthFactor,),
+                SizedBox(width: 5*widthFactor,),
                 Container(
                   height: 25*heightFactor,
                   width: 40*widthFactor,

@@ -49,8 +49,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   Widget build(BuildContext context) {
     var constraints = MediaQuery.of(context);
 
-    var heightFactor = constraints.size.height/819;
-    var widthFactor = constraints.size.width/411;
+    var heightFactor = constraints.size.height/820.57;
+    var widthFactor = constraints.size.width/411.43;
     print(constraints.size.width);
 
     return Scaffold(
@@ -192,7 +192,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
                     Positioned(
                       top:510*heightFactor,
-                      left:45*widthFactor,
+                      left:39*widthFactor,
                       child: Text(
                         'Too tired to walk your dog?\n\t\t\t\t\t\t\t\tLet us help you!',
                         style: TextStyle(

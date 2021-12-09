@@ -46,8 +46,8 @@ class _HomeFragmentState extends State<HomeFragment> {
   @override
   Widget build(BuildContext context) {
     var constraints = MediaQuery.of(context);
-    var heightFactor = constraints.size.height/819;
-    var widthFactor = constraints.size.width/411;
+    var heightFactor = constraints.size.height/820.57;
+    var widthFactor = constraints.size.width/411.43;
     data = List.generate(dogWalkerNames.length, (index) => DogWalker(name: '${dogWalkerNames[index]}', rate: '${dogWalkerRates[index]}', distance: dogWalkerDistances[index], asset: '${dogWalkerAssets[index]}', ));
     suggestedData = List.generate(suggestedDogWalkerNames.length, (index) => DogWalker(name: '${suggestedDogWalkerNames[index]}', rate: '${suggestedDogWalkerRates[index]}', distance: suggestedDogWalkerDistances[index], asset: '${suggestedDogWalkerAssets[index]}', ));
     return Container(

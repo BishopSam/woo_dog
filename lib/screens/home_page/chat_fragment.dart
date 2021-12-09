@@ -24,8 +24,8 @@ class _ChatFragmentState extends State<ChatFragment> {
   @override
   Widget build(BuildContext context) {
     var constraints = MediaQuery.of(context);
-    var heightFactor = constraints.size.height/819;
-    var widthFactor = constraints.size.width/411;
+    var heightFactor = constraints.size.height/820.57;
+    var widthFactor = constraints.size.width/411.43;
 
     data = List.generate(contactNames.length, (index) => ChatModel(contactName: '${contactNames[index]}', contactProfilePic: '${contactProfilePics[index]}', messagePreview: '${messagePreviews[index]}', time: '${times[index]}'));
     return Container(

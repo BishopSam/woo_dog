@@ -30,8 +30,9 @@ class _RegisterPageState extends State<RegisterPage> {
   Widget build(BuildContext context) {
     var constraints = MediaQuery.of(context);
 
-    var heightFactor = constraints.size.height/819;
-    var widthFactor = constraints.size.width/411;
+    var heightFactor = constraints.size.height/820.57;
+    var widthFactor = constraints.size.width/411.43;
+    print(constraints.size.width);
     return Scaffold(
 
       appBar: AppBar(
@@ -176,7 +177,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
                 SizedBox(height: 196*heightFactor,),
                 Padding(
-                  padding:  EdgeInsets.only(left: 68.0*widthFactor, right: 28.0*widthFactor),
+                  padding:  EdgeInsets.only(left: 48.0*widthFactor, right: 28.0*widthFactor),
                   child: Column(
                     children: [
                       Row(
